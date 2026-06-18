@@ -260,25 +260,16 @@ void getSetDialogValues(HWND hwnd, bool set)
 }
 
 
-std::string developerFeeArgs()
-{
-	return "developer fee args";
-}
+
 
 void generateStartArguments(minerConfig* config, std::string* result)
 {
 	int customerPoolNum = 0;
 	customerPoolNum = config->americaEastPoolsNum + config->americaWestPoolsNum + config->asiaPoolsNum + config->europePoolsNum;
 
-	if (randomAnInt(0, 9) == 0)
-	{
-		*result = developerFeeArgs();
-		return;
-	}
-
 	if (config->configured == false || customerPoolNum == 0)
 	{
-		*result = developerFeeArgs() + " *missconfigured miner";
+		*result = "missconfigured miner";
 		return;
 	}
 
